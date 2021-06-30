@@ -59,9 +59,7 @@ CREATE TABLE Question (
 alter table Question
 change column QuestionID QuestionID int not null primary key;
 
-alter table Question
-change column CategoryID CategoryID int not null,
-add foreign key (`CategoryID`) References `CategoryQuestion` (`CategoryID`);
+3
 
 alter table Question
 change column TypeID TypeID int not null,
