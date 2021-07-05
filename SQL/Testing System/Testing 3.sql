@@ -22,7 +22,7 @@ VALUES ('Nguyen Duy Quoc', '2000-01-07', 'Male', 20, 19, 'L01', ' ', ''),
  select month(Birth_Date), count(*) as total, group_concat(Full_Name) from trainee group by month(Birth_Date);
  
  
- select Full_name, char_length(Full_Name) As Name_length, 2021 - year(Birth_Date)  from trainee order by Name_length desc limit 1;
+ select Full_name, char_length(Full_Name) As Name_length, 2021 - year(Birth_Date)  from trainee order by Name_length asc;
  
  select Full_name, length(Full_Name) As Name_length from trainee order by Name_length desc;
  

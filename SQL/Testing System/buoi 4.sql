@@ -2,28 +2,101 @@ use TSA_1;
 
 
 
-select FullName, UserName, DepartmentName from Department as a right join `Account` as b on a.DepartmentID = b.DepartmentID;
+SELECT 
+    FullName, UserName, DepartmentName
+FROM
+    Department AS a
+        RIGHT JOIN
+    `Account` AS b ON a.DepartmentID = b.DepartmentID;
 
-select UserName, FullName, DepartmentName from Department as a right join `Account` as b on a.DepartmentID = b.DepartmentID where CreateDate > '2010-12-20';
+SELECT 
+    UserName, FullName, DepartmentName
+FROM
+    Department AS a
+        RIGHT JOIN
+    `Account` AS b ON a.DepartmentID = b.DepartmentID
+WHERE
+    CreateDate > '2010-12-20';
 
-select UserName, FullName from `Account` as a join Position as b on a.PositionID = b.PositionID where PositionName = 'Dev';
+SELECT 
+    UserName, FullName
+FROM
+    `Account` AS a
+        JOIN
+    Position AS b ON a.PositionID = b.PositionID
+WHERE
+    PositionName = 'Dev';
 
-select DepartmentName, count(1) as sonhanvien from Department as a right join `Account` as b on a.DepartmentID = b.DepartmentID group by a.DepartmentID having sonhanvien>2;
+SELECT 
+    DepartmentName, COUNT(1) AS sonhanvien
+FROM
+    Department AS a
+        RIGHT JOIN
+    `Account` AS b ON a.DepartmentID = b.DepartmentID
+GROUP BY a.DepartmentID
+HAVING sonhanvien > 2;
 
-select ExamID ,QuestionID from ExamQuestion order by ExamID asc;
+SELECT 
+    ExamID, QuestionID
+FROM
+    ExamQuestion
+ORDER BY ExamID ASC;
 
-select b.QuestionID, ExamID from ExamQuestion as a right join Question as b on a.QuestionID = b.QuestionID group by ExamID;
+SELECT 
+    b.QuestionID, ExamID
+FROM
+    ExamQuestion AS a
+        RIGHT JOIN
+    Question AS b ON a.QuestionID = b.QuestionID
+GROUP BY ExamID;
 
-select * from ExamQuestion;
+SELECT 
+    *
+FROM
+    ExamQuestion;
 
-
+SELECT 
+    PositionName, COUNT(*) AS dem
+FROM
+    `account` AS a
+        RIGHT JOIN
+    Position AS b ON a.PositionID = b.PositionID
+GROUP BY b.PositionID;
 
 select * from `Account` as a join `GroupAccount` as b on a.AccountID = b.AccountID  where GoupID= 1
 union
 select * from  `Account` as a join `GroupAccount` as b on a.AccountID = b.AccountID  where GoupID= 5;
 
-select GroupName, count(1) from `Account` as a join GroupAccount as b on a.AccountID = b.AccountID group by AccountID > 5
-union all
-select GroupName, count(1) from `Account` as a join GroupAccount as b on a.AccountID = b.AccountID group by AccountID < 7;
+SELECT 
+    GroupName, COUNT(1)
+FROM
+    `Account` AS a
+        JOIN
+    GroupAccount AS b ON a.AccountID = b.AccountID
+GROUP BY AccountID > 5 
+UNION ALL SELECT 
+    GroupName, COUNT(1)
+FROM
+    `Account` AS a
+        JOIN
+    GroupAccount AS b ON a.AccountID = b.AccountID
+GROUP BY AccountID < 7;
 
-select PositionName, count(1) from Position as a join `Account` as b on a.PositionID = b.PositionID group by PositionID asc limit 1;
+SELECT 
+    PositionName, COUNT(*)
+FROM
+    Position AS a
+        JOIN
+    `Account` AS b ON a.PositionID = b.PositionID
+GROUP BY PositionID ;
+
+select DepartmentName, count(1) as dem from Department as a join `account` as b on a.DepartmentID = b.DepartmentID group by a.DepartmentID order by dem desc limit 1;
+
+select a.QuestionID, count(ExamID) as 'so lan su dung' from Question as a left join ExamQuestion as b on a.QuestionID=b.QuestionID group by a.QuestionID;
+
+select * from ExamQuestion;
+
+select c.GroupName, c.GroupID, count(a.AccountID) as dem from ((`account` as a join GroupAccount as b on a.AccountID = b.AccountID) right join `Group` as c on b.GroupID = c.GroupID) group by b.GroupID having dem = 0 order by dem;
+
+select * from `Group`;
+
