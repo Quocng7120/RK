@@ -1,4 +1,4 @@
-use adventurework;
+use adventureworks;
 
 
 SELECT 
