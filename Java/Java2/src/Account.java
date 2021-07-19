@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Account {
@@ -7,6 +8,6 @@ public class Account {
     String fullName;
     Department department;
     Position position;
-    Date CreateDate;
+    LocalDate CreateDate;
     Group[] groups;
 }
