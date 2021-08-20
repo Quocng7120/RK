@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            color: white;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Style the header */
+        .header {
+            background-color: red;
+            padding: 30px;
+            text-align: center;
+            font-size: 30px;
+            height: 110px;
+        }
+
+        .nav {
+            height: 40px;
+            background-color: green;
+        }
+
+        .container {
+            height: 400px;
+            display: flex;
+        }
+
+        .left-content {
+            flex: 3;
+        }
+
+        .right-content {
+            flex: 1;
+        }
+
+        .section {
+            background-color: blue;
+            height: 200px;
+        }
+
+        .article {
+            background-color: black;
+            height: 200px;
+        }
+
+        .aside {
+            height: 400px;
+            background-color: gray;
+        }
+
+        .footer {
+            background-color: olive;
+            padding: 30px;
+            text-align: center;
+            height: 110px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Header</h2>
+    </div>
+    <div class="nav">
+        <h2>Nav</h2>
+    </div>
+    <div class="container">
+        <div class="left-content">
+            <div class="section">
+                <h2>Section</h2>
+            </div>
+            <div class="article">
+                <h2>Article</h2>
+            </div>
+        </div>
+        <div class="right-content">
+            <div class="aside">
+                <h2>Aside</h2>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h1>Footer</h1>
+    </div>
+</body>
+</html>
